@@ -1,0 +1,47 @@
+version: '2'
+services:
+  mongo:
+    image: mongo:4.2-bionic
+    networks: 
+      - internal
+    expose:
+      - 27017
+    restart: always
+    volumes:
+      - mongo:/data/db
+  coin:
+    image: battlestarcoin/linux-node
+    restart: always
+    networks:
+      - bridge
+      - internal
+    ports:
+      - 16914:16914
+    expose:
+      - 59332
+    volumes:
+      - coin:/home/batl/
+    command: ["batld", "-txindex=1"]
+  explorer:
+    image: battlestarcoin/explorer
+    restart: unless-stopped
+    networks:
+      - bridge
+      - internal
+    ports:
+      - 3001:3001
+    volumes:
+      - explorer:/home/iquidus
+    depends_on:
+      - mongo
+      - coin
+volumes:
+  mongo:
+    name: mongo
+    driver: local
+  coin:
+    name: coin
+    driver: local
+  explorer:
+    name: explorer
+    driver: local
