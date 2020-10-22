@@ -11,6 +11,10 @@ services:
       - mongo:/data/db
   coin:
     image: battlestarcoin/linux-node
+    environment:
+      - RPCUSER=${RPCUSER}
+      - PRCPASS=${PRCPASS}
+      - RPCIP=${RPCIP}
     restart: always
     networks:
       - bridge
@@ -24,6 +28,8 @@ services:
     command: ["batld", "-txindex=1"]
   explorer:
     image: battlestarcoin/explorer
+    environment:
+      - IQUIDUS_SETTINGS={"title":"BattlestarCoin Explorer","address":"https://explorer.domainhere.org","wallet":{"host":"batl","port":16915,"username":"${RPCUSER}","password":"${PRCPASS}"}}
     restart: unless-stopped
     networks:
       - bridge
