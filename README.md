@@ -7,7 +7,9 @@ Below is a docker compose stack to run a Battlestarcoin explorer.
 You need to set the environment variables
 
 RPCUSER - eg 23l1k323lk123
+
 PRCPASS - eg tlgdvf03l2k43
+
 RPCIP - eg 172.56.1.*
 
 You can also change the json in IQUIDUS_SETTINGS to update the config in the explorer, but if the key you change contains an object, you must supply a full replacement object.
