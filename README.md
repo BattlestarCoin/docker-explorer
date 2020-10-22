@@ -53,7 +53,7 @@ services:
   explorer:
     image: battlestarcoin/explorer
     environment:
-      - IQUIDUS_SETTINGS={"title":"BattlestarCoin Explorer","address":"https://explorer.domainhere.org","wallet":{"host":"batl","port":16915,"username":"${RPCUSER}","password":"${PRCPASS}"}}
+      - IQUIDUS_SETTINGS={"title":"BattlestarCoin Explorer","address":"https://explorer.domainhere.org","wallet":{"host":"coin","port":16915,"username":"${RPCUSER}","password":"${PRCPASS}"}}
     restart: unless-stopped
     networks:
       - bridge
