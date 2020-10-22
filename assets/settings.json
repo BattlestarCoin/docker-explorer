@@ -17,7 +17,7 @@
   },
   "update_timeout": 10,
   "check_timeout": 250,
-  "block_parallel_tasks": 12, //change this to number of threads wanted
+  "block_parallel_tasks": 12,
   "use_rpc": true,
   "wallet": {
     "host": "coin",
